@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  initiator:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    working_dir: ${WORKING_DIR}
+    volumes:
+      - ../:${WORKING_DIR}
+    command:
+      - ${WORKING_DIR}/initiator/start.sh
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+    networks:
+      - quickfix
+
+networks:
+  quickfix:
+
+
+  
