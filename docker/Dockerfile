@@ -6,7 +6,9 @@ WORKDIR ${WORKING_DIR}
 ADD . ${WORKING_DIR}
 
 #install pip and quickfix from whl
-RUN pip3 install quickfix/*
+RUN pip3 install -U pip
+#RUN pip3 install quickfix/quickfix-1.15.1-cp37-cp37m-linux_x86_64.whl
+RUN pip3 install quickfix/quickfix-1.15.1-cp37-cp37m-linux_aarch64.whl
 
 #Update permissions for start script
 RUN chmod 755 ${WORKING_DIR}/initiator/*/start.sh 
